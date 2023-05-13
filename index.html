@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        html {
+
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #ececec;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+            height: 1250px;
+            scroll-behavior: smooth;
+        }
+
+        .fixedStars {
+            display: block;
+            position: absolute;
+            top: -45px;
+            left: -35;
+            width: 100%;
+            height: 100vh;
+            transform: scale(1.2);
+            background-image: url("media/bg.svg");
+            background-repeat: no-repeat;
+            filter: blur(1px);
+            z-index: -3;
+            opacity: .2;
+        }
+
+        .fixedStars2 {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            transform: scale(1.2);
+            background-image: url("media/bg2.svg");
+            background-position: right -250px top 250px;
+            background-repeat: no-repeat;
+            filter: blur(1px);
+            z-index: -3;
+            opacity: .2;
+        }
+
+        .globalContainer {
+            max-width: 1250px;
+        }
+
+        .headerCont {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .logo span {
+            font-weight: bold;
+            font-size: 1.8rem;
+            text-decoration: underline;
+        }
+
+        .navigaiton {
+            display: flex;
+            align-items: center;
+        }
+
+        .navigaiton ul {
+            display: flex;
+            align-items: center;
+        }
+
+        .navigaiton li {
+            list-style-type: none;
+            margin-left: 32px;
+            cursor: pointer;
+        }
+
+        .navigaiton li a {
+            display: block;
+            text-decoration: none;
+            color: #000;
+            transition: .2s;
+            font-size: 16px;
+
+        }
+
+        .navigaiton li a:hover {
+            text-decoration: none;
+            color: #eab8bb;
+            transition: .2s;
+        }
+
+        .nContact {
+            margin-left: 32px;
+            cursor: pointer;
+            background-color: #000;
+            border: 3px solid #000;
+            border-radius: 5px;
+            transition: .2s;
+        }
+
+        .nContact:hover {
+            background-color: transparent;
+            -webkit-animation: flip-scale-down-diag-2 0.2s linear both;
+            animation: flip-scale-down-diag-2 0.2s linear both;
+        }
+
+        .nContact:hover a {
+            color: #000;
+        }
+
+        .nContact a {
+            display: block;
+            padding: .5rem !important;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .dod1 {
+            display: block;
+            position: absolute;
+            top: -250px;
+            left: -150px;
+            width: 700px;
+            height: 700px;
+            /*background-color: #d7c194;*/
+            border-radius: 100%;
+            z-index: -2;
+            background-image: url("media/venus.svg");
+            filter: blur(2px) drop-shadow(5px 5px 50px #ffa86a);
+            animation: rotate 85s ease-out;
+            animation-iteration-count: infinite;
+            pointer-events: none;
+        }
+
+        .dod2 {
+            display: block;
+            position: absolute;
+            top: 400px;
+            right: -200px;
+            width: 450px;
+            height: 450px;
+            /*background-color: #eab8bb;*/
+            border-radius: 100%;
+            z-index: -2;
+            background-image: url("media/world.svg");
+            filter: blur(5px) drop-shadow(5px 5px 50px #2cd1ff);
+            animation: rotate 155s ease-out;
+            animation-iteration-count: infinite;
+            pointer-events: none;
+        }
+
+        .rocket {
+            display: none;
+            position: absolute;
+            top: 200px;
+            right: 200px;
+            width: 90px;
+            height: 190px;
+            /*background-color: #eab8bb;*/
+            border-radius: 100%;
+            z-index: 12;
+            background-image: url("media/rocket.svg");
+            filter: blur(.5px);
+            pointer-events: none;
+        }
+
+        .slid {
+            margin-top: 6rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .slogan {
+            max-width: 40%;
+        }
+
+        .slogan h1 {
+            font-size: 7rem;
+            line-height: 7rem;
+            /*color: white;
+            mix-blend-mode: difference;*/
+        }
+
+        .slogan h1 span {
+            font-size: 3rem;
+            line-height: 3rem;
+            display: block;
+        }
+
+        .slogan p {
+            margin: 2rem 0;
+            font-size: 1.3rem;
+            line-height: 1.3rem;
+        }
+
+        .slogan .emoji {
+            width: 1.3rem;
+        }
+
+        .contactBtn {
+            display: inline-block;
+            padding: .5rem;
+            background-color: #fff;
+        }
+
+        .contactBtn a {
+            padding: 6px 8px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .contactBtn:hover {
+            background-color: #000;
+        }
+
+        .contactBtn:hover a {
+            color: #eab8bb;
+        }
+
+
+        .images {
+            width: 60%;
+            position: relative;
+            display: flex;
+            align-items: baseline;
+            justify-content: end;
+            text-align: right;
+        }
+
+
+
+        .imagesIn {
+            margin: 0 10% 0 0;
+            width: 300px;
+            border: 6px solid #000;
+            border-radius: 20px;
+            box-shadow: 15px 12px 0px 0px;
+            transition: .5s;
+            z-index: 2;
+            background: linear-gradient(182deg, #d7c194, #949fd7);
+            background-size: 400% 400%;
+            -webkit-animation: AnimationName 20s ease infinite;
+            -moz-animation: AnimationName 20s ease infinite;
+            animation: AnimationName 20s ease infinite;
+        }
+
+        .imagesIn:hover {
+            box-shadow: 0 0 0 0;
+        }
+
+        .imagesIn img {
+            margin-top: -10px;
+            display: block;
+            width: 100%;
+            transition: .5s;
+            transform: scale(1.1);
+        }
+
+        .imagesIn img:hover {
+            box-shadow: 0 0 0 0;
+            transition: .5s cubic-bezier(.785, .135, .15, .86);
+            transform: scale(1);
+        }
+
+        .imagesIn img:hover>.imagesIn {}
+
+        .imagesIn::after {
+            display: block;
+            position: absolute;
+            bottom: 40px;
+            right: 45%;
+            z-index: 22;
+            width: 80px;
+            height: 80px;
+            background-image: url("media/mars.svg");
+            border-radius: 100%;
+            content: '';
+            filter: blur(1px) drop-shadow(5px 5px 50px #ff642c);
+            animation: rotate 45s;
+            animation-iteration-count: infinite;
+            pointer-events: none;
+        }
+
+
+
+        /* klasik */
+        .btn {
+            border: 3px solid #000;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 10px 8px 0px 0px;
+            transition: .2s;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 0 0;
+            transition: .2s;
+            -webkit-animation: flip-scale-down-diag-2 0.2s linear both;
+            animation: flip-scale-down-diag-2 0.2s linear both;
+        }
+
+        /* Button */
+        @-webkit-keyframes flip-scale-down-diag-2 {
+            0% {
+                -webkit-transform: scale(1) rotate3d(-1, 1, 0, 0deg);
+                transform: scale(1) rotate3d(-1, 1, 0, 0deg);
+            }
+
+            50% {
+                -webkit-transform: scale(0.8) rotate3d(-1, 1, 0, -10deg);
+                transform: scale(0.8) rotate3d(-1, 1, 0, -10deg);
+            }
+
+            100% {
+                -webkit-transform: scale(1) rotate3d(-1, 1, 0, -0deg);
+                transform: scale(1) rotate3d(-1, 1, 0, -0deg);
+            }
+        }
+
+        @keyframes flip-scale-down-diag-2 {
+            0% {
+                -webkit-transform: scale(1) rotate3d(-1, 1, 0, 0deg);
+                transform: scale(1) rotate3d(-1, 1, 0, 0deg);
+            }
+
+            50% {
+                -webkit-transform: scale(0.8) rotate3d(-1, 1, 0, -10deg);
+                transform: scale(0.8) rotate3d(-1, 1, 0, -10deg);
+            }
+
+            100% {
+                -webkit-transform: scale(1) rotate3d(-1, 1, 0, -0deg);
+                transform: scale(1) rotate3d(-1, 1, 0, -0deg);
+            }
+        }
+
+        /* ımages */
+        @-webkit-keyframes AnimationName {
+            0% {
+                background-position: 46% 0%
+            }
+
+            50% {
+                background-position: 55% 100%
+            }
+
+            100% {
+                background-position: 46% 0%
+            }
+        }
+
+        @-moz-keyframes AnimationName {
+            0% {
+                background-position: 46% 0%
+            }
+
+            50% {
+                background-position: 55% 100%
+            }
+
+            100% {
+                background-position: 46% 0%
+            }
+        }
+
+        @keyframes AnimationName {
+            0% {
+                background-position: 46% 0%
+            }
+
+            50% {
+                background-position: 55% 100%
+            }
+
+            100% {
+                background-position: 46% 0%
+            }
+        }
+
+        /* planet */
+        @keyframes rotate {
+            from {
+                transform: rotate(0) scale(1);
+
+            }
+
+            to {
+                transform: rotate(360deg) scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body class="emr" onload="init()">
+    <div class="fixedStars"></div>
+    <div class="fixedStars2"></div>
+    <div class="globalContainer">
+
+        <header>
+            <div class="dod1"></div>
+            <div class="dod2"></div>
+            <div class="rocket"></div>
+            <div class="headerCont">
+                <div class="logo">
+                    <span>Emre GÜR</span>
+                </div>
+                <div class="navigaiton">
+                    <ul>
+                        <li><a href="#" title="Hakkımda">Hakkımda</a></li>
+                        <li><a href="#" title="Yeteneklerim">Yeteneklerim</a></li>
+                    </ul>
+                    <div class="nContact"><a href="#" title="Bana Ulaşın!">Bana Ulaşın!</a></div>
+                </div>
+            </div>
+        </header>
+        <div class="slid">
+            <div class="slogan">
+                <h1><span>Jr.</span>Frontend Developer!</h1>
+                <p><img src="./media/hand-emoji.png" alt="" class="emoji"> Merhaba, ben Frontend projeleri
+                    geliştiriyorum.</p>
+                <div class="contactBtn btn"><a href="#" title="Hadi Konuşalım">Hadi Konuşalım</a></div>
+            </div>
+            <div class="images">
+                <div class="imagesIn"><img src="./media/eg2.png" alt=""></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script>
+
+        body = document.querySelector(".emr");
+        dod1 = document.querySelector(".dod1");
+        dod2 = document.querySelector(".dod2");
+        rocket1 = document.querySelector(".rocket");
+        window.addEventListener("scroll", function () {
+            nee();
+        }, false);
+
+        function nee() {
+            let vlues = 250 + window.pageYOffset;
+            dod1.style.top = -vlues + "px";
+            dod2.style.top = 400 - window.pageYOffset + "px";
+            rocket1.style.display = "block";
+            rocket1.style.top = 1000 - window.pageYOffset * 5 + "px";
+
+        }
+
+    </script>
+    <script src="smooth.js"></script>
+</body>
+
+</html>
